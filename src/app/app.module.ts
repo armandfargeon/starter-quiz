@@ -7,6 +7,12 @@ import { QuizListComponent } from './quizzes/quiz-list/quiz-list.component';
 import { QuizComponent } from './quizzes/quiz/quiz.component';
 import { HeaderComponent } from './header/header.component';
 import { QuizFormComponent } from './quizzes/quiz-form/quiz-form.component';
+import {HttpClientModule} from '@angular/common/http';
+import {QuizEditComponent} from './quizzes/quiz-edit/quiz-edit.component';
+import {AppRoutingModule} from './app.routing.module';
+import {QuestionFormComponent} from './quizzes/questions/question-form/question-form.component';
+import {QuestionComponent} from './quizzes/questions/question/question.component';
+import {QuestionListComponent} from './quizzes/questions/question-list/question-list.component';
 
 @NgModule({
   declarations: [
@@ -14,11 +20,17 @@ import { QuizFormComponent } from './quizzes/quiz-form/quiz-form.component';
     QuizListComponent,
     QuizComponent,
     HeaderComponent,
-    QuizFormComponent
+    QuizFormComponent,
+    QuizEditComponent,
+    QuestionComponent,
+    QuestionFormComponent,
+    QuestionListComponent
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

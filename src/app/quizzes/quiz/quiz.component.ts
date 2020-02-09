@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { Quiz } from '../../../models/quiz.model';
+import {Themes} from '../../../models/themeComponent';
 
 @Component({
   selector: 'app-quiz',
@@ -10,9 +11,14 @@ export class QuizComponent implements OnInit {
 
   @Input()
   quiz: Quiz;
+  theme: typeof Themes = Themes;
+
 
   @Output()
   quizSelected: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  @Output()
+  quizDeleted: EventEmitter<Quiz> = new EventEmitter<Quiz>();
 
   constructor() {
   }
@@ -22,5 +28,11 @@ export class QuizComponent implements OnInit {
 
   selectQuiz() {
     this.quizSelected.emit(true);
+
   }
+
+  deleteQuiz() {
+    this.quizDeleted.emit(this.quiz);
+  }
+
 }

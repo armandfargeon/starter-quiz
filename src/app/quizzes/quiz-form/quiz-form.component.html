@@ -5,8 +5,19 @@
       Title <br>
       <input class="input-custom" type="text" id="name" [formControlName]="'name'">
     </label>
+    <div></div>
+    <label for="theme">
+    Theme <br>
+      <select name="theme" id="theme" [formControlName]="'theme'">
+        <option value="">Please choose a theme</option>
+        <option *ngFor="let theme of keys(themes)" [ngValue]="themes[theme]">{{theme}}</option>
+        </select>
+    </label>
     <br>
     <button type="submit" class="button-card" (click)="addQuiz()">Create</button>
+    <br>
+    <button type="submit" class="button-card" (click)="fromUrl()">Create quiz from server</button>
+
   </form>
 </div>
 <!-- Uncomment below to see your form structure and how it changes-->

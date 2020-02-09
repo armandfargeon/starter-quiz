@@ -1,0 +1,9 @@
+<div *ngIf="quizCalled!=null">
+  <h2>{{quizCalled.name}}</h2>
+  <app-question-form></app-question-form>
+</div>
+
+<div *ngIf="quizCalled==null">
+  <h2>Bad request</h2>
+</div>
+
