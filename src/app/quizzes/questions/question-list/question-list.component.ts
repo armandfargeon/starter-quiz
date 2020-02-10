@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Question} from '../../../../models/question.model';
+import {QuizEditComponent} from '../../quiz-edit/quiz-edit.component';
 
 
 @Component({
@@ -9,22 +10,19 @@ import {Question} from '../../../../models/question.model';
 })
 
 export class QuestionListComponent implements OnInit {
+
   questionList: Question[];
 
 
-
-
-  constructor() {
+  constructor(quizEdit: QuizEditComponent) {
+    quizEdit.questions$.subscribe((question) => this.questionList = question);
 
   }
   ngOnInit(): void {
   }
 
-  addQuestion(question: Question) {
-    this.questionList.push(question);
-  }
 
-  deleteQuestion(question: Question) {
-    this.questionList.splice(this.questionList.indexOf(question), 1);
-    console.log('The quiz \"' + question.label + '\" was successfully deleted.');  }
+  questionDeleted(question: Question) {
+      this.questionList.splice(this.questionList.indexOf(question), 1);
+      console.log('The quiz \"' + question.label + '\" was successfully deleted.');  }
 }

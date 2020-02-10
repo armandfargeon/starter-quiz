@@ -69,6 +69,4 @@ export class QuizService {
     return of(QUIZ_LIST.find(quiz => quiz.id === id));
   }
 
-
-
 }

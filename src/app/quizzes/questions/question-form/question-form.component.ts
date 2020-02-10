@@ -1,6 +1,7 @@
 import {FormArray, FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {Component} from '@angular/core';
-import {QuestionListComponent} from '../question-list/question-list.component';
+import {QuizEditComponent} from '../../quiz-edit/quiz-edit.component';
+import {Question} from '../../../../models/question.model';
 
 @Component({
   selector: 'app-question-form',
@@ -12,7 +13,7 @@ export class QuestionFormComponent  {
   private questionForm: FormGroup;
 
 
-  constructor(public formBuilder: FormBuilder) {
+  constructor(public formBuilder: FormBuilder, private quizEdit: QuizEditComponent) {
   this.initializeQuestionForm();
   }
 
@@ -40,7 +41,10 @@ export class QuestionFormComponent  {
        this.answers.push(this.createAnswer());
     }
 
-    createQuestion() {
+  createQuestion() {
+    const questionToCreate: Question = this.questionForm.getRawValue() as Question;
+    this.quizEdit.addQuestion(questionToCreate);
+    this.initializeQuestionForm();
     }
 
 }
