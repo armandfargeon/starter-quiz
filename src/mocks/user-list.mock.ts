@@ -1,7 +1,6 @@
 import { User } from '../models/user.model';
 
 
-// @ts-ignore
 export const USER_LIST: User[] = [
   {
     id: '1',
